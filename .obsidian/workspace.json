@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TODO.md",
+                "file": "Final Year Project/Potential Supervisors.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TODO"
+              "title": "Potential Supervisors"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TODO.md",
+                "file": "Final Year Project/Potential Supervisors.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TODO.md",
+                "file": "Final Year Project/Potential Supervisors.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TODO.md",
+                "file": "Final Year Project/Potential Supervisors.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -190,11 +190,11 @@
   },
   "active": "e36108c1b77768a2",
   "lastOpenFiles": [
+    "TODO.md",
     "2026-10-05.md",
     "Untitled.canvas",
     "Untitled.base",
     "Welcome.md",
-    "TODO.md",
     "VLSI/Lab1.md",
     "Final Year Project/Potential Supervisors.md",
     "Final Year Project",
