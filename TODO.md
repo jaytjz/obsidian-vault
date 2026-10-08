@@ -13,7 +13,10 @@
 - [ ] 
 
 ### Complexity
-- [ ] 
+- [ ] Watch Lecture
+
+### Principles of Distributed Ledgers
+- [ ] Watch Lecture
 
 ## Grad Jobs
 - [ ] Get a job :(

@@ -18,14 +18,15 @@
 - [ ] Customisable Smart Switches and NICs for Cloud and Edge Computing
 - [ ] Maximising Heterogeneous Resource Utilisation of FPGAs
 
+## David Schall
+- [ ] Understanding Microarchitectural Bottlenecks of Agentic Workloads
+- [ ] Read-Once Register Architecture
+
 ## Lluis Vilanova
 - [ ] Adaptive LLM Inference over Disaggregated GPUs
 - [ ] A new practical, formal method to verify security in multi-tenant cloud FPGAs
 - [ ] [https://www.doc.ic.ac.uk/~lvilanov/opportunities/projects/](https://www.doc.ic.ac.uk/~lvilanov/opportunities/projects/)
 
-## David Schall
-- [ ] Understanding Microarchitectural Bottlenecks of Agentic Workloads
-- [ ] Read-Once Register Architecture
 
 ## Kokkinos, Iason
 - [ ] Video2Physics: Understanding Contact and Force from Human Demonstrations
