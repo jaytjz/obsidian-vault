@@ -4,23 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "d3db4113ada1a000",
+        "id": "0ded758ee9f1af6b",
         "type": "tabs",
         "children": [
           {
-            "id": "e36108c1b77768a2",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "VLSI/img/spgemm-gustavson.gif"
-              },
-              "icon": "lucide-image",
-              "title": "spgemm-gustavson"
-            }
-          },
-          {
-            "id": "744d2afaf1d918e1",
+            "id": "5b8227edb945de1a",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -32,21 +20,8 @@
               "icon": "lucide-file",
               "title": "Background"
             }
-          },
-          {
-            "id": "875aa3819eb39c59",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "VLSI/img/Pasted image 20261008132815.png"
-              },
-              "icon": "lucide-image",
-              "title": "Pasted image 20261008132815"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -108,7 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "0119d984d6307a63",
@@ -200,7 +175,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -213,21 +189,21 @@
       "bases:Create new base": false
     }
   },
-  "active": "744d2afaf1d918e1",
+  "active": "5b8227edb945de1a",
   "lastOpenFiles": [
+    "VLSI/img/gamma-operation.png",
+    "VLSI/img/spmspm-gamma-flow.png",
+    "VLSI/img/Pasted image 20261008132815.png",
+    "VLSI/img/gemm-hardware.png",
+    "VLSI/img/gemmini-architecture.png",
+    "VLSI/Project/Background.md",
     "VLSI/img/spmm-sextans-flow.png",
     "VLSI/img/matraptor-architecture.png",
     "VLSI/img/sextans-architecture.png",
-    "VLSI/img/gemmini-architecture.png",
     "VLSI/Project/DV Workflow.md",
-    "VLSI/Project/Background.md",
     "VLSI/img/spmspm-hardware 1.png",
-    "VLSI/img/Pasted image 20261008132815.png",
     "VLSI/img/spgemm-gustavson.gif",
     "VLSI/img/spmspm-hardware.png",
-    "VLSI/img/spmm-hardware.png",
-    "VLSI/img/gemm-hardware.png",
-    "VLSI/img/spgemm-gustavson-steps.png",
     "TODO.md",
     "Final Year Project/Potential Supervisors.md",
     "VLSI/LabBook/Lab1.md",

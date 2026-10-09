@@ -68,34 +68,25 @@ Only Looking at MM as targeting ML Workloads, using CSR Format and Gust Algo. (T
 
 *Left: simplified dataflow, generated with claude. Right: Gemmini architecture, from [Genc et al., DAC 2021](https://arxiv.org/abs/1911.09925).*
 
-- **Dataflow:** DMA loads A and B tiles from DRAM into the scratchpad, the systolic array computes a C tile into the accumulator, and DMA writes C back.
-- **Array (output stationary):** A flows right and B flows down, skewed by one cycle per row or column. Each PE keeps one element of C.
-- **PE:** one MAC per cycle, c += a × b. a and b are registered, then passed to the next PE.
-
 ### SpMM
 
 ![[spmm-sextans-flow.png|631]] ![[sextans-architecture.png|660]]
 
 *Left: simplified flow, based on Sextans. Right: Sextans architecture, from [Song et al., FPGA 2022](https://arxiv.org/abs/2109.11081).*
 
-- **Dataflow:** each PEG has its own Read A stream of nonzeros (m, k, a). Read B loads a K0 × N0 window of B, which is passed from PEG to PEG. C accumulates on chip, then Collect C scales it by α and Comp C adds βC_in, so Sextans computes C = αAB + βC.
-- **Array:** 8 PEGs of 8 PEs. Row m goes to PE m mod 64, so PEs own disjoint rows of C and never write the same element.
-- **PE:** for each nonzero, it reads row k of its local B copy and does N0 MACs, C[m, j] += a × B[k, j], into its C scratchpad.
-- **Hazards:** two nonzeros for the same row back to back would wait on the adder latency, so Sextans reorders nonzeros in preprocessing to keep issuing one per cycle.
-
 ### SpMSpM
 
-![[spmspm-hardware.png|615]] ![[matraptor-architecture.png|656]]
+![[spmspm-gamma-flow.png|601]] ![[gamma-operation.png|670]]
 
-*Left: simplified dataflow, based on MatRaptor. Right: MatRaptor architecture, from [Srivastava et al., MICRO 2020](https://www.csl.cornell.edu/~zhiruz/pdfs/matraptor-micro2020.pdf).*
+*Left: simplified flow, based on Gamma. Right: Gamma's operation, from [Zhang et al., ASPLOS 2021](https://dspace.mit.edu/handle/1721.1/145981).*
 
-- **Lanes:** each lane has a sparse A loader (SpAL), a sparse B loader (SpBL) and a PE, on its own HBM channel. Rows of A are dealt round robin across lanes.
-- **Loading:** SpAL streams row i of A as (a, i, k). For each one, SpBL streams row k of B and sends (a, b, i, j) to the PE.
-- **PE:** Phase I multiplies and merges each partial row into a queue sorted by column. Phase II picks the smallest column across the queues, sums matching entries with an adder tree, and streams the finished row of C out.
-- **Overlap:** two queue sets are double buffered, so Phase II drains row i while Phase I builds row i + 1. C is written in C²SR, where each row's channel is fixed, so lanes never wait for each other.
+- **Format:** A, B and C are all plain CSR (Gamma calls each compressed row a fiber), so there is no conversion between formats.
+- **Scheduler:** walks the rows of A and turns each into a task for whichever PE is free. Rows of A with more than 64 nonzeros become a tree of merges.
+- **FiberCache:** holds rows of B, fetched ahead of use, and partial output rows.
+- **PE:** merges up to 64 rows of B by column, scales each element by its value from A, adds neighbours with the same column, and writes the finished row of C back in CSR.
 
 ## References
 - [Dedicated Hardware Accelerators for Processing of Sparse Matrices and Vectors: A Survey](https://dl.acm.org/doi/10.1145/3640542)
 - [Gemmini: Enabling Systematic Deep-Learning Architecture Evaluation via Full-Stack Integration (Genc et al., DAC 2021)](https://arxiv.org/abs/1911.09925)
 - [Sextans: A Streaming Accelerator for General-Purpose Sparse-Matrix Dense-Matrix Multiplication (Song et al., FPGA 2022)](https://arxiv.org/abs/2109.11081)
-- [MatRaptor: A Sparse-Sparse Matrix Multiplication Accelerator Based on Row-Wise Product (Srivastava et al., MICRO 2020)](https://www.csl.cornell.edu/~zhiruz/pdfs/matraptor-micro2020.pdf)
+- [Gamma: Leveraging Gustavson's Algorithm to Accelerate Sparse Matrix Multiplication (Zhang et al., ASPLOS 2021)](https://dspace.mit.edu/handle/1721.1/145981)
